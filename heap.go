@@ -14,6 +14,11 @@ func right(index int) int {
 	return index*2 + 2
 }
 
+func insert(array *[]int, value int) {
+	*array = append(*array, value)
+	heapify_min(array)
+}
+
 func heapify_min(array *[]int) {
 	arr := *array
 	// first start rightIndex is the most right index of an array
@@ -31,24 +36,21 @@ func heapify_min(array *[]int) {
 }
 
 func main() {
-	array := []int{4}
-	heapify_min(&array)
+	array := []int{}
+
+	insert(&array, 4)
 	fmt.Println(array)
 
-	array = append(array, 3)
-	heapify_min(&array)
+	insert(&array, 3)
 	fmt.Println(array)
 
-	array = append(array, 2)
-	heapify_min(&array)
+	insert(&array, 2)
 	fmt.Println(array)
 
-	array = append(array, 3)
-	heapify_min(&array)
+	insert(&array, 3)
 	fmt.Println(array)
 
-	array = append(array, 1)
-	heapify_min(&array)
+	insert(&array, 1)
 	fmt.Println(array)
 
 	fmt.Println(array[left(1)])
