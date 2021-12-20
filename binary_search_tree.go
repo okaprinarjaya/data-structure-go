@@ -8,8 +8,6 @@ type Node struct {
 	Right *Node
 }
 
-var counter int
-
 func (n *Node) Insert(newKey int) {
 	if newKey > n.Key {
 		// move right
@@ -31,8 +29,6 @@ func (n *Node) Insert(newKey int) {
 }
 
 func (n *Node) Search(key int) bool {
-	counter++
-
 	if n == nil {
 		return false
 	}
@@ -62,8 +58,5 @@ func main() {
 	tree.Insert(276)
 
 	fmt.Println(tree.Search(276))
-	fmt.Println(counter)
-
 	fmt.Println(tree.Search(400))
-	fmt.Println(counter)
 }
